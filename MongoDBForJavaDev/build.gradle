@@ -1,4 +1,12 @@
-apply plugin: "java"
+plugins{ id 'java'
+//id 'checkstyle'
+}
+/*
+checkstyle {
+    configFile file('config/checkstyle/checkstyle.xml');
+    toolVersion '7.6';    // your choice here
+}
+*/
 
 group = 'app'
 version '1.0'
@@ -27,5 +35,16 @@ testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: "${v
 testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: "${versions.junit}"
 testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "${versions.junit}"
 
+// compile group: 'checkstyle', name: 'checkstyle', version: '5.0'
+
+
 
 }
+/*
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}*/
